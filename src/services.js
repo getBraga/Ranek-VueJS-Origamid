@@ -10,6 +10,9 @@ export const api = {
   post(endpoint, body) {
     return axiosInstance.post(endpoint, body);
   },
+  delete(endpoint) {
+    return axiosInstance.delete(endpoint);
+  },
 };
 export async function getCep(cep) {
   return await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
