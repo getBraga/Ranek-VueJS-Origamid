@@ -6,7 +6,7 @@
     </router-link>
     <div class="info">
       <p class="preco">{{produto.preco | numeroPreco}}</p>
-      <p class="titulo">{{produto.nome}}</p>
+      <h2 class="titulo">{{produto.nome}}</h2>
       <slot></slot>
     </div>
   </div>
