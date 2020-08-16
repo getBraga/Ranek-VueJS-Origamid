@@ -14,6 +14,7 @@
 
 <script>
 import { api } from "@/services.js";
+
 export default {
   name: "ProdutoAdicionar",
   data() {
@@ -23,6 +24,7 @@ export default {
         preco: "",
         descricao: "",
         fotos: null,
+        vendido: "false",
       },
     };
   },
@@ -30,7 +32,6 @@ export default {
     formatarProduto() {
       this.produto.usuario_id = this.$store.state.usuario.id;
     },
-
     adicionarProduto() {
       this.formatarProduto();
       api.post("/produto", this.produto).then(() => {
@@ -48,6 +49,7 @@ export default {
   align-items: center;
   margin-bottom: 60px;
 }
+
 .btn {
   grid-column: 2;
 }
