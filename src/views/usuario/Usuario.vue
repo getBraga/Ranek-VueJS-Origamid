@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .usuario {
   display: grid;
   grid-template-columns: minmax(140px, 200px) 1fr;
