@@ -77,4 +77,13 @@ h3 {
   margin: 0px;
   justify-self: end;
 }
+@media screen and (max-width: 800px) {
+  .entrega {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  h3 {
+    justify-self: start;
+  }
+}
 </style>
