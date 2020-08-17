@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { api } from "@/services.js";
 import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 
@@ -18,6 +19,19 @@ export default {
   components: {
     TheHeader,
     TheFooter,
+  },
+  created() {
+    if (window.localStorage.token) {
+      api
+        .validateToken()
+        .then(() => {
+          this.$store.dispatch("getUsuario");
+        })
+        .catch((error) => {
+          console.log(error);
+          window.localStorage.removeItem("token");
+        });
+    }
   },
 };
 </script>
