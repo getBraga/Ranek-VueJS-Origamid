@@ -1,6 +1,7 @@
 <template>
   <section>
     <h2>Endereço de Envio</h2>
+    <ErroNotificacao :erros="erros" />
     <UsuarioForm>
       <button class="btn" @click.prevent="finalizarCompra">Finalizar Compra</button>
     </UsuarioForm>
@@ -36,6 +37,11 @@ export default {
       };
     },
   },
+  data() {
+    return {
+      erros: [],
+    };
+  },
   methods: {
     criarTransacao() {
       return api.post("/transacao", this.compra).then(() => {
@@ -49,7 +55,7 @@ export default {
         await this.$store.dispatch("getUsuario");
         await this.criarTransacao();
       } catch (error) {
-        console.log(error);
+        this.erros.push(error.response.data.message);
       }
     },
     finalizarCompra() {
